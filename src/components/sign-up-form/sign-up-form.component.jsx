@@ -37,6 +37,9 @@ const SignUpForm = () => {
       await createUserDocumentFromAuth(user, { displayName });
       resetFormFields();
     } catch (error) {
+      if (error.code === "auth/wrong-password") {
+        alert("wrong password, try again");
+      }
       console.log("user creation encountered and error", error);
     }
   };
@@ -46,6 +49,12 @@ const SignUpForm = () => {
 
     setFormFields({ ...formFields, [name]: value });
   };
+
+  // const handleChange = (event) => {
+  //   const { name, value } = event.target;
+
+  //   setFormFields({ ...formFields, [name]: value });
+  // };
 
   return (
     <div className="sign-up-container">
