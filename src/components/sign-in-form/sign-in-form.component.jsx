@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import {
   signInWithGooglePopup,
   createUserDocumentFromAuth,
@@ -25,7 +26,9 @@ const SignInForm = () => {
     event.preventDefault();
 
     try {
-      const response = await signInUserWithEmailAndPassword(email, password);
+      const { user } = await signInUserWithEmailAndPassword(email, password);
+
+      resetFormFields();
     } catch (error) {
       switch (error.code) {
         case "auth/wrong-password":
@@ -37,10 +40,6 @@ const SignInForm = () => {
         default:
           console.log(error);
       }
-      // console.log(error);
-      // if (error.code === "auth/wrong-password") {
-      //   alert("incorrect password for email");
-      // } else if
     }
   };
   const handleChange = (event) => {
@@ -50,8 +49,7 @@ const SignInForm = () => {
   };
 
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    const userDocRef = await createUserDocumentFromAuth(user);
+    await signInWithGooglePopup();
   };
 
   return (
@@ -87,8 +85,3 @@ const SignInForm = () => {
 };
 
 export default SignInForm;
-// const SignInForm = () => {
-//   return <h1>hi</h1>;
-// };
-
-// export default SignInForm;
