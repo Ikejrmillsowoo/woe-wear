@@ -9,7 +9,6 @@ const CartIcon = () => {
 
   const toggleIsCartOpen = () => setIsCartOpen(!isCartOpen);
 
-  console.log(cartCount);
   return (
     <div className="cart-icon-container" onClick={toggleIsCartOpen}>
       <ShoppingIcon className="shopping-icon" />
