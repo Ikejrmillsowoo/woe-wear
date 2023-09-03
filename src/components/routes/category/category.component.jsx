@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import "./category.styles.scss";
+import { CategoryContainer, CategoryTitle } from "./category.styles.jsx";
 import { CategoriesContext } from "../../../contexts/categoriesContext.component";
 import { useContext, useState, useEffect, Fragment } from "react";
 import ProductCard from "../../product-card/product-card.component";
@@ -15,13 +15,13 @@ const Category = () => {
 
   return (
     <Fragment>
-      <h2 className="category-title">{category.toUpperCase()}</h2>
-      <div className="category-container">
+      <CategoryTitle as="h2">{category.toUpperCase()}</CategoryTitle>
+      <CategoryContainer>
         {products &&
           products.map((product) => {
             return <ProductCard key={product.id} product={product} />;
           })}
-      </div>
+      </CategoryContainer>
     </Fragment>
   );
 };

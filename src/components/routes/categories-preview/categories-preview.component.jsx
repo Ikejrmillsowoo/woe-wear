@@ -2,7 +2,6 @@ import { Fragment, useContext } from "react";
 
 import { CategoriesContext } from "../../../contexts/categoriesContext.component";
 
-import "./categories-preview.styles.scss";
 import CategoryPreview from "../../category-preview/category-preview.component";
 
 const CategoriesPreview = () => {
