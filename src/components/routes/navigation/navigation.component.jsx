@@ -10,11 +10,14 @@ import {
   NavLinks,
   LogoContainer,
 } from "./navigation.styles";
+import { selectCurrentUser } from "../../../store/user/user.selector";
 import { signOutUser } from "../../../utils/firebase/firebase.utils";
 import { CartDropdown } from "../../cart-dropdown/cart-dropdown.component";
+import { useSelector } from "react-redux";
 
 const Navigation = () => {
-  const { currentUser } = useContext(UserContext);
+  const currentUser = useSelector(selectCurrentUser);
+
   const { isCartOpen } = useContext(CartContext);
 
   return (
@@ -25,7 +28,7 @@ const Navigation = () => {
         </LogoContainer>
 
         <NavLinks>
-          <NavLink to="/shop">Shop</NavLink>
+          <NavLink to="/shop">SHOP</NavLink>
           {currentUser ? (
             <NavLink as="span" onClick={signOutUser}>
               SIGN OUT
