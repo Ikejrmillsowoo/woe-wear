@@ -1,8 +1,7 @@
 import React, { Fragment, useContext } from "react";
 import { Outlet, Link } from "react-router-dom";
 import CartIcon from "../../cart-icon/cart-icon.component";
-import { ReactComponent as CrownLogo } from "../../../assets/crown.svg";
-import { UserContext } from "../../../contexts/userContext.component";
+import { ReactComponent as WoeLogo } from "../../../assets/woeLogo.svg";
 import { CartContext } from "../../../contexts/cartContext.component";
 import {
   NavigationContainer,
@@ -24,7 +23,7 @@ const Navigation = () => {
     <Fragment>
       <NavigationContainer>
         <LogoContainer to="/">
-          <CrownLogo className="logo" />
+          <WoeLogo className="logo" />
         </LogoContainer>
 
         <NavLinks>
